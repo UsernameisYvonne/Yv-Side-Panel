@@ -1,0 +1,15 @@
+{
+  "id": "80384942.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "one_piece",
+  "label_confidence": 0.336,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8988,
+  "per_label_scores": {
+    "top": 0.33369526267051697,
+    "bottom": 0.3302578926086426,
+    "one_piece": 0.33604684472084045
+  },
+  "raw_path": "YV_dataset/raw_all/80384942.webp"
+}

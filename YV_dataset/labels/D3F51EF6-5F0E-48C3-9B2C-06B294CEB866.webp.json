@@ -1,0 +1,15 @@
+{
+  "id": "D3F51EF6-5F0E-48C3-9B2C-06B294CEB866.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3364,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.7931,
+  "per_label_scores": {
+    "top": 0.3363623023033142,
+    "bottom": 0.331279456615448,
+    "one_piece": 0.3323582410812378
+  },
+  "raw_path": "YV_dataset/raw_all/D3F51EF6-5F0E-48C3-9B2C-06B294CEB866.webp"
+}

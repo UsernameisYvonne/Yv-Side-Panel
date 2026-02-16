@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yv Side Panel MVP</title>
+
+    <!--
+      Purpose (EN): Load CSS for the side panel UI.
+    -->
+    <link rel="stylesheet" href="sidepanel.css" />
+  </head>
+
+  <body>
+    <!--
+      Header area
+    -->
+    <div class="header">
+      <div class="title">Yv Side Panel MVP</div>
+      <button id="clearBtn" class="btn secondary">Clear</button>
+    </div>
+
+    <!--
+      Controls area: "Pick garment" button + status (tell the user what to do next)
+    -->
+    <div class="controls">
+      <button id="captureTopBtn" class="btn primary">Capture Top</button>
+      <button id="captureBottomBtn" class="btn primary">Capture Bottom</button>
+      <span id="statusText" class="status">Idle</span>
+    </div>
+
+    <!--
+      Cat base area
+      assets/cat.PNG
+      Later (future): will render multiple layers here (cat body, clothes, accessories)
+    -->
+    <div class="stage-wrap">
+      <div id="stage">
+        <img id="tailImg" alt="cat tail" />
+        <img id="catImg" alt="cat base" />
+        <img id="eyelidsImg" alt="cat eyelids" />
+        <img id="garmentTopImg" alt="default top" />
+        <img id="garmentPantsImg" alt="default pants" />
+      </div>
+    </div>
+
+    <!--
+      Preview area (currently just display, no collage style what so ever)
+    -->
+    <div class="section">
+      <div class="sectionTitle">Captured image preview</div>
+      <div class="preview" id="previewBox">
+        <div class="placeholder">Waiting for an image...</div>
+      </div>
+    </div>
+
+    <!--
+      Load sidepanel.js (press button -> show pic -> listen -> storage update)
+    -->
+    <script src="sidepanel.js"></script>
+  </body>
+</html>

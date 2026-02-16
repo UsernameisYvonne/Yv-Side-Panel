@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Yv Side Panel MVP",
+  "version": "0.1.0",
+  "description": "Capture product images and preview a collage-style try-on in a side panel.",
+  "permissions": ["storage", "sidePanel", "tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/*", "assets/eyes/*", "assets/tail/*"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

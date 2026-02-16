@@ -1,0 +1,15 @@
+{
+  "id": "D95B311E-2CF9-4D9D-AC08-5B68D526C7AC.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3438,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8997,
+  "per_label_scores": {
+    "top": 0.3438350260257721,
+    "bottom": 0.3228626847267151,
+    "one_piece": 0.3333022892475128
+  },
+  "raw_path": "YV_dataset/raw_all/D95B311E-2CF9-4D9D-AC08-5B68D526C7AC.webp"
+}

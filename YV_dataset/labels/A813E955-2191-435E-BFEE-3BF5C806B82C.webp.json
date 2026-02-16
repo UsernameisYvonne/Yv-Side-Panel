@@ -1,0 +1,15 @@
+{
+  "id": "A813E955-2191-435E-BFEE-3BF5C806B82C.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3407,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8962,
+  "per_label_scores": {
+    "top": 0.340731143951416,
+    "bottom": 0.32494333386421204,
+    "one_piece": 0.33432552218437195
+  },
+  "raw_path": "YV_dataset/raw_all/A813E955-2191-435E-BFEE-3BF5C806B82C.webp"
+}

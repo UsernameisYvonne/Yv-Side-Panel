@@ -1,0 +1,15 @@
+{
+  "id": "864574_ZAUU8_9413_001_100_0000_Light-printed-silk-twill-pleated-skirt.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "bottom",
+  "label_confidence": 0.3383,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.3282392919063568,
+    "bottom": 0.338324636220932,
+    "one_piece": 0.3334360718727112
+  },
+  "raw_path": "YV_dataset/raw_all/864574_ZAUU8_9413_001_100_0000_Light-printed-silk-twill-pleated-skirt.webp"
+}

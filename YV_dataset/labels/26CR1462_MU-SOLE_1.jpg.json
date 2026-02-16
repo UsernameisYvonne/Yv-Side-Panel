@@ -1,0 +1,15 @@
+{
+  "id": "26CR1462_MU-SOLE_1.jpg",
+  "status": "ok",
+  "ext": ".jpg",
+  "label": "one_piece",
+  "label_confidence": 0.3368,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8826,
+  "per_label_scores": {
+    "top": 0.33321425318717957,
+    "bottom": 0.3300012946128845,
+    "one_piece": 0.3367844521999359
+  },
+  "raw_path": "YV_dataset/raw_all/26CR1462_MU-SOLE_1.jpg"
+}

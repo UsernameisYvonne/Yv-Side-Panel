@@ -1,0 +1,15 @@
+{
+  "id": "A2DF2197-78D3-4522-8A9D-559B5DF31E78.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3447,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.34468117356300354,
+    "bottom": 0.3279927670955658,
+    "one_piece": 0.3273259997367859
+  },
+  "raw_path": "YV_dataset/raw_all/A2DF2197-78D3-4522-8A9D-559B5DF31E78.webp"
+}

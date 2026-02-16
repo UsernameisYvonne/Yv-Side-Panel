@@ -1,0 +1,15 @@
+{
+  "id": "2594573A-3250-4AB3-AB73-91F734F87550.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3446,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.3446314036846161,
+    "bottom": 0.32521384954452515,
+    "one_piece": 0.3301547169685364
+  },
+  "raw_path": "YV_dataset/raw_all/2594573A-3250-4AB3-AB73-91F734F87550.webp"
+}
