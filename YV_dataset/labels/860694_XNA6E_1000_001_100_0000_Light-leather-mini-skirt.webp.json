@@ -1,0 +1,15 @@
+{
+  "id": "860694_XNA6E_1000_001_100_0000_Light-leather-mini-skirt.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "bottom",
+  "label_confidence": 0.3407,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.33348503708839417,
+    "bottom": 0.3406687378883362,
+    "one_piece": 0.32584619522094727
+  },
+  "raw_path": "YV_dataset/raw_all/860694_XNA6E_1000_001_100_0000_Light-leather-mini-skirt.webp"
+}

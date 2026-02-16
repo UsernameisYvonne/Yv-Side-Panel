@@ -1,0 +1,15 @@
+{
+  "id": "1234B73E-2455-4848-82A5-D4058329A7D7.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3451,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.9098,
+  "per_label_scores": {
+    "top": 0.34510350227355957,
+    "bottom": 0.32319375872612,
+    "one_piece": 0.3317027986049652
+  },
+  "raw_path": "YV_dataset/raw_all/1234B73E-2455-4848-82A5-D4058329A7D7.webp"
+}

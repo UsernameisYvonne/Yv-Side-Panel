@@ -1,0 +1,15 @@
+{
+  "id": "120067BF-B3A5-41DD-A836-569EFE961875.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3438,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8125,
+  "per_label_scores": {
+    "top": 0.34378498792648315,
+    "bottom": 0.32200002670288086,
+    "one_piece": 0.3342150151729584
+  },
+  "raw_path": "YV_dataset/raw_all/120067BF-B3A5-41DD-A836-569EFE961875.webp"
+}

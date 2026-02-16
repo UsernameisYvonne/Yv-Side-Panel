@@ -1,0 +1,15 @@
+{
+  "id": "613A3D81-390B-41ED-886E-C0C3F802C94F.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3422,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8354,
+  "per_label_scores": {
+    "top": 0.3422420620918274,
+    "bottom": 0.3254975378513336,
+    "one_piece": 0.3322603702545166
+  },
+  "raw_path": "YV_dataset/raw_all/613A3D81-390B-41ED-886E-C0C3F802C94F.webp"
+}

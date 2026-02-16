@@ -1,0 +1,15 @@
+{
+  "id": "1756951532690a74678f4a1ca457f0984ac1dda6af_thumbnail_900x.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "one_piece",
+  "label_confidence": 0.339,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.3332003653049469,
+    "bottom": 0.32780200242996216,
+    "one_piece": 0.33899766206741333
+  },
+  "raw_path": "YV_dataset/raw_all/1756951532690a74678f4a1ca457f0984ac1dda6af_thumbnail_900x.webp"
+}

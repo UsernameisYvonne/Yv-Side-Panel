@@ -1,0 +1,15 @@
+{
+  "id": "654C5080-4F8A-45A5-AABA-56A707962488.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3453,
+  "source_type": "flat_lay",
+  "source_confidence": 0.0,
+  "per_label_scores": {
+    "top": 0.345281720161438,
+    "bottom": 0.3256448805332184,
+    "one_piece": 0.329073429107666
+  },
+  "raw_path": "YV_dataset/raw_all/654C5080-4F8A-45A5-AABA-56A707962488.webp"
+}

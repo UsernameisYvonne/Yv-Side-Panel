@@ -1,0 +1,15 @@
+{
+  "id": "D7E42176-DD90-42CF-B919-C8185B690ED4.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3345,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8797,
+  "per_label_scores": {
+    "top": 0.3344922363758087,
+    "bottom": 0.3333626389503479,
+    "one_piece": 0.3321451246738434
+  },
+  "raw_path": "YV_dataset/raw_all/D7E42176-DD90-42CF-B919-C8185B690ED4.webp"
+}

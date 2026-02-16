@@ -1,0 +1,15 @@
+{
+  "id": "945515b6d6e11d0c7619b86f9168f8ed.PNG",
+  "status": "ok",
+  "ext": ".png",
+  "label": "one_piece",
+  "label_confidence": 0.3368,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8785,
+  "per_label_scores": {
+    "top": 0.3311207890510559,
+    "bottom": 0.3321012854576111,
+    "one_piece": 0.3367779850959778
+  },
+  "raw_path": "YV_dataset/raw_all/945515b6d6e11d0c7619b86f9168f8ed.PNG"
+}

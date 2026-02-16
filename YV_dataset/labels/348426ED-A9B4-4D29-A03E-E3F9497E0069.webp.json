@@ -1,0 +1,15 @@
+{
+  "id": "348426ED-A9B4-4D29-A03E-E3F9497E0069.webp",
+  "status": "ok",
+  "ext": ".webp",
+  "label": "top",
+  "label_confidence": 0.3366,
+  "source_type": "model_fullbody",
+  "source_confidence": 0.8936,
+  "per_label_scores": {
+    "top": 0.336586594581604,
+    "bottom": 0.3319289982318878,
+    "one_piece": 0.3314844071865082
+  },
+  "raw_path": "YV_dataset/raw_all/348426ED-A9B4-4D29-A03E-E3F9497E0069.webp"
+}
