@@ -7,7 +7,7 @@ import base64, io
 
 app = FastAPI()
 
-# 允许 extension / localhost 访问（MVP 直接放开）
+# allow CORS for all origins (for testing purposes, adjust in production)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,7 +31,7 @@ def bytes_to_dataurl_png(b: bytes) -> str:
 def cutout(req: CutoutReq):
     img_bytes = dataurl_to_bytes(req.image_data_url)
 
-    # rembg remove: 输出带 alpha 的 PNG bytes
+    # Use rembg to remove the background
     out_bytes = remove(img_bytes)
 
     return {"png_data_url": bytes_to_dataurl_png(out_bytes)}

@@ -92,3 +92,43 @@ chrome.runtime.onMessage.addListener(async (msg, sender) => {
     return;
   }
 });
+
+chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
+  if (msg?.type !== "FETCH_IMAGE_DATA_URL") return;
+
+  (async () => {
+    try {
+      const url = msg.url;
+      // Note: we intentionally omit credentials (cookies) to avoid potential CORS issues and also for privacy reasons, since we only need the image data and not any user-specific info that might be in cookies. This means that if the image URL requires authentication via cookies, this fetch will likely fail, but for many public images it should work fine.
+      const resp = await fetch(url, { credentials: "omit" });
+
+      if (!resp.ok) {
+        throw new Error(`fetch failed: ${resp.status}`);
+      }
+
+      const contentType = resp.headers.get("content-type") || "image/png";
+      const buf = await resp.arrayBuffer();
+      const bytes = new Uint8Array(buf);
+
+      // Uint8Array -> base64
+      let binary = "";
+      const chunkSize = 0x8000;
+      for (let i = 0; i < bytes.length; i += chunkSize) {
+        binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+      }
+      const b64 = btoa(binary);
+      const dataUrl = `data:${contentType};base64,${b64}`;
+
+      sendResponse({
+        ok: true,
+        dataUrl,
+        contentType,
+        byteLength: bytes.length
+      });
+    } catch (e) {
+      sendResponse({ ok: false, error: String(e) });
+    }
+  })();
+
+  return true; // keep message channel open for async sendResponse
+});

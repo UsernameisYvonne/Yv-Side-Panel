@@ -301,49 +301,67 @@ loadLastCapture();
 // ---------- Real-time update via storage ----------
 chrome.storage.onChanged.addListener((changes, area) => {
   if (area !== "local") return;
+  if (!changes.lastCapture?.newValue) return;
 
-  if (changes.lastCapture?.newValue) {
-    renderFromLastCapture(changes.lastCapture.newValue).then(
-      async (srcForPreview) => {
-        const last = changes.lastCapture.newValue;
+  // Use an async IIFE to avoid deeply nested .then chains
+  (async () => {
+    const last = changes.lastCapture.newValue;
 
-        if (pendingTarget) {
-          // 1) 优先拿 cropped dataURL 来做 cutout
-          let srcForCutout = null;
+    try {
+      // (Optional) render preview (keeps your existing UI behavior)
+      // If your renderFromLastCapture sets preview image / status, keep it:
+      await renderFromLastCapture(last);
 
-          if (last.screenshotDataUrl && last.rect && last.dpr) {
-            srcForCutout = await cropScreenshotToDataUrl(
-              last.screenshotDataUrl,
-              last.rect,
-              last.dpr
-            );
-          } else {
-            // fallback: 没有 screenshot 就用预览 src（可能是 URL，MVP 不保证可 cutout）
-            srcForCutout = srcForPreview;
-          }
+      if (!pendingTarget) return;
 
-          // 2) 如果是 dataURL，走 cutout
-          let finalPng = srcForCutout;
-          if (
-            typeof srcForCutout === "string" &&
-            srcForCutout.startsWith("data:")
-          ) {
-            setStatus(`Cutting out ${pendingTarget}...`);
-            finalPng = await cutoutDataUrl(srcForCutout);
-          } else {
-            // URL 情况：先不 cutout，直接贴（你后面要高精会再做 URL->blob->dataURL）
-            setStatus(`Applied ${pendingTarget} (no cutout)`);
-          }
+      let srcForCutout = null;
 
-          // 3) 贴到 overlay
-          applyToStage(pendingTarget, finalPng);
-          setStatus(`Applied to ${pendingTarget}`);
+      // 1) Prefer high-res candidateImageSrc (URL -> dataURL via service worker)
+      if (last.candidateImageSrc) {
+        try {
+          setStatus("Fetching high-res...");
+          srcForCutout = await fetchHighResDataUrl(last.candidateImageSrc);
+          setStatus("High-res fetched");
+        } catch (e) {
+          console.warn(
+            "[Yv] high-res fetch failed, fallback to screenshot crop:",
+            e
+          );
+          srcForCutout = null;
         }
-
-        pendingTarget = null;
       }
-    );
-  }
+
+      // 2) Fallback to cropped screenshot
+      if (!srcForCutout && last.screenshotDataUrl && last.rect && last.dpr) {
+        setStatus("Cropping screenshot...");
+        srcForCutout = await cropScreenshotToDataUrl(
+          last.screenshotDataUrl,
+          last.rect,
+          last.dpr
+        );
+      }
+
+      // 3) Still nothing -> stop gracefully
+      if (!srcForCutout) {
+        setStatus("No valid capture data");
+        pendingTarget = null;
+        return;
+      }
+
+      // 4) Cutout via local server (rembg)
+      setStatus(`Cutting out ${pendingTarget}...`);
+      const finalPng = await cutoutDataUrl(srcForCutout);
+
+      // 5) Apply to stage
+      applyToStage(pendingTarget, finalPng);
+      setStatus(`Applied to ${pendingTarget}`);
+      pendingTarget = null;
+    } catch (err) {
+      console.error("[Yv] onChanged pipeline error:", err);
+      setStatus("Error (see console)");
+      pendingTarget = null;
+    }
+  })();
 });
 
 // ---------------- Blink animation (eyelids) ----------------
@@ -426,3 +444,19 @@ window.addEventListener("DOMContentLoaded", () => {
   preloadImages(EYELID_FRAMES);
   scheduleNextBlink(eyelidsEl, EYELID_FRAMES);
 });
+
+function fetchHighResDataUrl(url) {
+  return new Promise((resolve, reject) => {
+    chrome.runtime.sendMessage(
+      { type: "FETCH_IMAGE_DATA_URL", url },
+      (resp) => {
+        const err = chrome.runtime.lastError;
+        if (err) return reject(err);
+
+        if (!resp?.ok)
+          return reject(new Error(resp?.error || "fetchHighRes failed"));
+        resolve(resp.dataUrl);
+      }
+    );
+  });
+}
